@@ -1,1 +1,1 @@
-Обучение "Продвинутый JS" Purple School
+Обучение "Продвинутый TS" Purple School
