@@ -1,38 +1,47 @@
-// const skills : string[] = ['Dev', 'DevOps'];
-//
-// for (const skill of skills) {
-//     // console.log(skill.toLowerCase())
-// }
-//
-// const res = skills
-//     .filter((s: string) => s !== 'DevOps')
-//     .map(s => s + '! ')
-//     .reduce((a, b) => a + b)
-//
-// // console.log(res)
-//
-// const skill : [number, string] = [1, 'Dev']
-// const id = skill[0];
-// const skillName = skill[1];
-// skill.push('dsf');
-// // console.log(skill)
-// // console.log(skill.pop())
+// Запрос в виде платежа
 
-enum StatusCode {
-    SUCCESS = 1,
-    IN_PROCESS = 3,
-    FAILED = 10
-
+interface IPayment {
+    sum: number,
+    from: number,
+    to: number
 }
-const res = {
-    message: 'Платеж успешен',
-    statusCode: 1
-};
+interface IPaymentRequest extends IPayment {}
 
-//1 - успех
-//2 - в процессе
-//3 - отклонен
 
-if (res.statusCode === StatusCode.SUCCESS) {
-    console.log('Успешно')
+interface IDataSuccess extends IPayment{
+    "databaseId": number
+}
+
+interface IDataFailed{
+    "errorMessage": string,
+    "errorCode": number
+}
+
+enum Status {
+    SUCCESS = "success",
+    FAILED = "failed",
+}
+
+interface IRespondSuccess {
+    status: Status.SUCCESS;
+    data: IDataSuccess
+}
+
+interface IRespondFailed {
+    status: Status.FAILED;
+    data: IDataFailed
+}
+
+type f = (res: IRespondSuccess | IRespondFailed) => number
+type Res = IRespondSuccess | IRespondFailed
+function isSuccess(res: Res): res is IRespondSuccess {
+    return res.status === Status.SUCCESS
+}
+
+function checkStatus(res: Res): number{
+    if (isSuccess(res)) {
+        return res.data.databaseId
+    } else {
+        return res.data.errorCode
+    }
 }
