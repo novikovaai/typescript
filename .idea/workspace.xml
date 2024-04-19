@@ -26,6 +26,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
+
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2bzel8ZOUtBYbdvx1LOrLrX4JJ3" />
@@ -35,6 +36,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;2-typings&quot;,
@@ -50,6 +52,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+
       <changelist id="21ea4b08-3e88-4678-b086-17dbe5b9c67d" name="Changes" comment="" />
       <created>1707222483249</created>
       <option name="number" value="Default" />
@@ -65,6 +68,7 @@
     <option name="version" value="3" />
     <option name="exactExcludedFiles">
       <list>
+
         <option value="$PROJECT_DIR$/2-typings/2-typings.d.ts" />
       </list>
     </option>
