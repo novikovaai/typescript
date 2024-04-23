@@ -1,4 +1,3 @@
-"use strict";
 /*
 Необходимо реализовать абстрактный класс Logger с 2-мя методами
 абстрактным - log(message): void и printDate - выводящий в log дату.
@@ -7,20 +6,28 @@
 logWithDate,выводящий сначала дату, а потом заданное сообщение
 
 */
-class Logger {
-    printDate(date) {
+
+abstract class Logger {
+    abstract log(message: string): void;
+
+    printDate (date: Date): void {
         this.log(date.toLocaleDateString("ru-RU", {}));
     }
+
 }
+
 class LoggerNotAbstract extends Logger {
-    log(message) {
+    log(message: string): void {
         console.log(message);
-    }
-    ;
-    logWithDate(message) {
-        this.printDate(new Date());
+    };
+
+    logWithDate(message: string) {
+        this.printDate(new Date())
         this.log(message);
     }
+
 }
+
 const test = new LoggerNotAbstract();
+
 test.logWithDate('Сообщение');
