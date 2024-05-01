@@ -1,26 +1,35 @@
-"use strict";
-/*
-Необходимо реализовать абстрактный класс Logger с 2-мя методами
-абстрактным - log(message): void и printDate - выводящий в log дату.
-
-К нему необходимо сделать реальный класс, который бы имел метод:
-logWithDate,выводящий сначала дату, а потом заданное сообщение
-
-*/
-class Logger {
-    printDate(date) {
-        this.log(date.toLocaleDateString("ru-RU", {}));
+//еобходимо написать функцию сортировки любых//
+// объектов, которые имеют id по убыванию и по возрастанию
+function sortObjectsById(arrayOfObjects, SortOrder) {
+    if (SortOrder === 'desc') {
+        return arrayOfObjects.sort(function (a, b) { return b.id - a.id; });
     }
+    else
+        return arrayOfObjects.sort(function (a, b) { return a.id - b.id; });
 }
-class LoggerNotAbstract extends Logger {
-    log(message) {
-        console.log(message);
-    }
-    ;
-    logWithDate(message) {
-        this.printDate(new Date());
-        this.log(message);
-    }
-}
-const test = new LoggerNotAbstract();
-test.logWithDate('Сообщение');
+var data = [
+    { id: 2, name: 'Петя' },
+    { id: 1, name: 'Вася' },
+    { id: 3, name: 'Надя' },
+];
+console.log(sortObjectsById(data));
+console.log(sortObjectsById(data, 'desc'));
+// const num: Array<number> = [0, 1, 2, 3, 4, 5];
+// async function test1() {
+//     const a = await new Promise<number>((resolve, reject) => {
+//         resolve(1);
+//     })
+// }
+//
+// const check: Record<string, boolean> = {
+//     drive: true,
+//     kpp: false
+// }
+// function toString1<T>(something: T): string | undefined {
+//     if (something) {
+//         return something.toString();
+//     } else
+//         return undefined;
+// }
+//
+// console.log(toString1([[1, 2, 3, 4]]))

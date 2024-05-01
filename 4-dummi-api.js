@@ -13,20 +13,36 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = __importDefault(require("axios"));
-function getUsers() {
-    return __awaiter(this, void 0, void 0, function* () {
-        yield fetch('https://dummyjson.com/users')
-            .then(data => console.log(data));
-    });
-}
-function getUser() {
+function getUsers(url) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield axios_1.default.get('https://dummyjson.com/users');
-            console.log(response);
+            const response = yield axios_1.default.get(url);
+            const users = response.data;
+            for (const user of users) {
+                console.log(user.firstName);
+            }
         }
         catch (error) {
-            console.error(error);
+            if (error instanceof Error) {
+                console.log(error.message);
+            }
         }
     });
 }
+var Gender;
+(function (Gender) {
+    Gender["MALE"] = "male";
+    Gender["FEMALE"] = "female";
+})(Gender || (Gender = {}));
+var BloodType;
+(function (BloodType) {
+    BloodType["IPos"] = "0+";
+    BloodType["INeg"] = "0-";
+    BloodType["IIPos"] = "A+";
+    BloodType["IINeg"] = "A-";
+    BloodType["IIIPos"] = "B+";
+    BloodType["IIINeg"] = "B-";
+    BloodType["IVPos"] = "AB+";
+    BloodType["IVNeg"] = "AB-";
+})(BloodType || (BloodType = {}));
+getUsers('https://dummyjson.com/users');
